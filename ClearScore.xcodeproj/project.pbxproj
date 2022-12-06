@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7557486293D61DB0039D315 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7557485293D61DB0039D315 /* Enum.swift */; };
+		F7557488293D62DA0039D315 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7557487293D62DA0039D315 /* Dependencies.swift */; };
+		F755748A293D63560039D315 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7557489293D63560039D315 /* DependencyInjector.swift */; };
+		F772D69D293F425500148879 /* ClearScoreViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772D69C293F425500148879 /* ClearScoreViewModelTests.swift */; };
 		F78FA822293BC2AE00CCB666 /* ClearScoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78FA821293BC2AE00CCB666 /* ClearScoreApp.swift */; };
 		F78FA824293BC2AE00CCB666 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78FA823293BC2AE00CCB666 /* DashboardView.swift */; };
 		F78FA826293BC2B700CCB666 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F78FA825293BC2B700CCB666 /* Assets.xcassets */; };
@@ -14,6 +18,12 @@
 		F78FA833293BC2B800CCB666 /* ClearScoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78FA832293BC2B800CCB666 /* ClearScoreTests.swift */; };
 		F78FA83D293BC2B800CCB666 /* ClearScoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78FA83C293BC2B800CCB666 /* ClearScoreUITests.swift */; };
 		F78FA83F293BC2B800CCB666 /* ClearScoreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78FA83E293BC2B800CCB666 /* ClearScoreUITestsLaunchTests.swift */; };
+		F7BEFC8E293DC08800C93405 /* ClearScoreServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BEFC8D293DC08800C93405 /* ClearScoreServiceTests.swift */; };
+		F7BEFC90293DC87500C93405 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BEFC8F293DC87500C93405 /* Mocks.swift */; };
+		F7BFDA18293C767C00631644 /* ClearScoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFDA17293C767C00631644 /* ClearScoreService.swift */; };
+		F7BFDA1A293C769C00631644 /* CreditScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFDA19293C769C00631644 /* CreditScoreViewModel.swift */; };
+		F7BFDA1D293C76F400631644 /* CreditScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFDA1C293C76F400631644 /* CreditScoreModel.swift */; };
+		F7BFDA22293C92D300631644 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFDA21293C92D300631644 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F7557485293D61DB0039D315 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
+		F7557487293D62DA0039D315 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
+		F7557489293D63560039D315 /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
+		F772D69C293F425500148879 /* ClearScoreViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearScoreViewModelTests.swift; sourceTree = "<group>"; };
 		F78FA81E293BC2AE00CCB666 /* ClearScore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClearScore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78FA821293BC2AE00CCB666 /* ClearScoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearScoreApp.swift; sourceTree = "<group>"; };
 		F78FA823293BC2AE00CCB666 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -44,6 +58,12 @@
 		F78FA838293BC2B800CCB666 /* ClearScoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClearScoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78FA83C293BC2B800CCB666 /* ClearScoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearScoreUITests.swift; sourceTree = "<group>"; };
 		F78FA83E293BC2B800CCB666 /* ClearScoreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearScoreUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F7BEFC8D293DC08800C93405 /* ClearScoreServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearScoreServiceTests.swift; sourceTree = "<group>"; };
+		F7BEFC8F293DC87500C93405 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
+		F7BFDA17293C767C00631644 /* ClearScoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearScoreService.swift; sourceTree = "<group>"; };
+		F7BFDA19293C769C00631644 /* CreditScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditScoreViewModel.swift; sourceTree = "<group>"; };
+		F7BFDA1C293C76F400631644 /* CreditScoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditScoreModel.swift; sourceTree = "<group>"; };
+		F7BFDA21293C92D300631644 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +114,8 @@
 		F78FA820293BC2AE00CCB666 /* ClearScore */ = {
 			isa = PBXGroup;
 			children = (
+				F7BFDA1E293C7C9D00631644 /* Utilities */,
+				F7BFDA1B293C76A200631644 /* Model */,
 				F78FA84E293BDFE400CCB666 /* Services */,
 				F78FA84C293BDF9900CCB666 /* View */,
 				F78FA84B293BDF8500CCB666 /* ViewModel */,
@@ -116,6 +138,9 @@
 			isa = PBXGroup;
 			children = (
 				F78FA832293BC2B800CCB666 /* ClearScoreTests.swift */,
+				F7BEFC8D293DC08800C93405 /* ClearScoreServiceTests.swift */,
+				F7BEFC8F293DC87500C93405 /* Mocks.swift */,
+				F772D69C293F425500148879 /* ClearScoreViewModelTests.swift */,
 			);
 			path = ClearScoreTests;
 			sourceTree = "<group>";
@@ -132,6 +157,7 @@
 		F78FA84B293BDF8500CCB666 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F7BFDA19293C769C00631644 /* CreditScoreViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -147,8 +173,28 @@
 		F78FA84E293BDFE400CCB666 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F7BFDA17293C767C00631644 /* ClearScoreService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		F7BFDA1B293C76A200631644 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F7BFDA1C293C76F400631644 /* CreditScoreModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F7BFDA1E293C7C9D00631644 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F7BFDA21293C92D300631644 /* Extensions.swift */,
+				F7557485293D61DB0039D315 /* Enum.swift */,
+				F7557487293D62DA0039D315 /* Dependencies.swift */,
+				F7557489293D63560039D315 /* DependencyInjector.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,8 +327,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7BFDA1A293C769C00631644 /* CreditScoreViewModel.swift in Sources */,
+				F7BFDA1D293C76F400631644 /* CreditScoreModel.swift in Sources */,
+				F7557486293D61DB0039D315 /* Enum.swift in Sources */,
+				F7557488293D62DA0039D315 /* Dependencies.swift in Sources */,
+				F7BFDA18293C767C00631644 /* ClearScoreService.swift in Sources */,
 				F78FA824293BC2AE00CCB666 /* DashboardView.swift in Sources */,
+				F755748A293D63560039D315 /* DependencyInjector.swift in Sources */,
 				F78FA822293BC2AE00CCB666 /* ClearScoreApp.swift in Sources */,
+				F7BFDA22293C92D300631644 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +343,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7BEFC8E293DC08800C93405 /* ClearScoreServiceTests.swift in Sources */,
 				F78FA833293BC2B800CCB666 /* ClearScoreTests.swift in Sources */,
+				F7BEFC90293DC87500C93405 /* Mocks.swift in Sources */,
+				F772D69D293F425500148879 /* ClearScoreViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +499,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ClearScore/Preview Content\"";
+				DEVELOPMENT_TEAM = K4YGJM7Z8H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -471,6 +528,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ClearScore/Preview Content\"";
+				DEVELOPMENT_TEAM = K4YGJM7Z8H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
