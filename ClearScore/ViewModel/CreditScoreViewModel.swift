@@ -11,13 +11,17 @@ import SwiftUI
 
 class CreditScoreViewModel: ObservableObject {
 	
-	@Inject private var clearScoreService: ClearScoreService
+	private var clearScoreService: ClearScoreService
 	
 	@Published var scoreData: CreditScoreModel?
 	@Published var score: Double = 0.0
-	@Published var viewState:CreditScoreViewState=CreditScoreViewState.initial
+	@Published var viewState:CreditScoreViewState = .loading
 	
 	private var cancellables = Set<AnyCancellable>()
+	
+	init(clearScoreService: ClearScoreService){
+		self.clearScoreService = clearScoreService
+	}
 		
 	func loadCreditScoreData() {
 		viewState = CreditScoreViewState.loading

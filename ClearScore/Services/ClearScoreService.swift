@@ -13,7 +13,6 @@ protocol ClearScoreService {
 }
 
 class ClearScoreServiceImplementation: ClearScoreService {
-
 	func fetchCreditScore() -> AnyPublisher<CreditScoreModel, Error> {
 
 		guard let url =  URL(string: String.getEventsUrl)

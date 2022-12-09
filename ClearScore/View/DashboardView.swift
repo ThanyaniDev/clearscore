@@ -9,18 +9,27 @@ import SwiftUI
 
 struct DashboardView: View {
 	
-	@StateObject var vm: CreditScoreViewModel =  CreditScoreViewModel()
+	@ObservedObject var viewModel: CreditScoreViewModel
 	@State var creditScore = 0.0
+	@State var animate = false
 	
 	var body: some View {
-		
 		NavigationView {
 			ZStack{
-				switch vm.viewState {
-					case .initial:
-						ProgressView()
+				switch viewModel.viewState {
 					case .loading:
-						ProgressView()
+						VStack {
+							Color(.systemBackground)
+								.ignoresSafeArea()
+							Image("clearscore")
+								.resizable()
+								.scaledToFit()
+								.frame(width: 100.0, height: 100.0)
+							ProgressView()
+								.progressViewStyle(CircularProgressViewStyle(tint: .black))
+								.scaleEffect(2)
+						}
+						.frame(width: 250, height: 50, alignment: .center)
 					case .error(errorMessage: _):
 						VStack{
 							Text(String.errorSubheader)
@@ -29,7 +38,7 @@ struct DashboardView: View {
 								.foregroundColor(.black)
 							Button(String.tryAgain) {
 								Task {
-									vm.loadCreditScoreData()
+									viewModel.loadCreditScoreData()
 								}
 							}.font(Font.system(size: 16).bold())
 								.frame(width: 250, height: 48)
@@ -40,30 +49,26 @@ struct DashboardView: View {
 						}
 					case .loaded:
 						ZStack{
-							Rectangle()
-								.frame(height: 0)
-								.background(Color.green.opacity(0.2))
 							Circle()
 								.stroke(lineWidth: 2)
 								.foregroundColor(.gray)
 								.opacity(0.1)
 
 							Circle()
-								.trim(from: 0.0, to:min(vm.score,1.0))
+								.trim(from: 0.0, to:min(viewModel.score,1.0))
 								.stroke(lineWidth: 2)
 								.foregroundColor(.black)
-								.rotationEffect(Angle(degrees: 270))
-								.animation(.easeInOut(duration: 1).delay(1), value: vm.score)
-								
+								.rotationEffect(.init(degrees: self.animate ? 270 : 0))
+								.animation(.easeInOut(duration: 3), value: viewModel.score)
 							VStack(spacing: 10) {
 								VStack (spacing: 2) {
 									Text(String.subHeadLine1)
 
-									Text("\(self.vm.scoreData?.creditReportInfo?.score ?? 0)")
+									Text("\(self.viewModel.scoreData?.creditReportInfo?.score ?? 0)")
 										.font(.system(size: 90))
 										.fontWeight(.ultraLight)
 										.foregroundColor(.yellow)
-									Text( .subHeadLine2 + "\(self.vm.scoreData?.creditReportInfo?.maxScoreValue ?? 0)")
+									Text( .subHeadLine2 + "\(self.viewModel.scoreData?.creditReportInfo?.maxScoreValue ?? 0)")
 								}
 							}
 						}
@@ -77,8 +82,9 @@ struct DashboardView: View {
 		.onAppear {
 			UINavigationBarAppearance()
 				.setColor(title: .white, background: .black)
-			vm.loadCreditScoreData()
-			creditScore =  vm.score
+			viewModel.loadCreditScoreData()
+			self.animate.toggle()
+			creditScore =  viewModel.score
 		}
 	}
 }
@@ -98,6 +104,7 @@ extension UINavigationBarAppearance {
 
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
-		DashboardView()
+		let service =  ClearScoreServiceImplementation()
+		DashboardView(viewModel: CreditScoreViewModel(clearScoreService: service))
 	}
 }

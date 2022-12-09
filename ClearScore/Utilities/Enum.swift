@@ -7,10 +7,22 @@
 
 import Foundation
 
-enum CreditScoreViewState {
-	case initial
+enum CreditScoreViewState: Equatable {
 	case loading
+	case error(errorMessage: String)
 	case loaded
-	case error(errorMessage:String)
 	
+		// Implement the == operator function
+	static func ==(lhs: CreditScoreViewState, rhs: CreditScoreViewState) -> Bool {
+		switch (lhs, rhs) {
+			case (.loading, .loading):
+				return true
+			case let (.error(errorMessage: lhsErrorMessage), .error(errorMessage: rhsErrorMessage)):
+				return lhsErrorMessage == rhsErrorMessage
+			case (.loaded, .loaded):
+				return true
+			default:
+				return false
+		}
+	}
 }

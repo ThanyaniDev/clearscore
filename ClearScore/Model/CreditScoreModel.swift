@@ -7,11 +7,20 @@
 
 import Foundation
 
-struct CreditScoreModel: Decodable {
+struct CreditScoreModel: Decodable, Equatable {
 	var creditReportInfo: CreditReportInfo?
+	
+	static func == (lhs: CreditScoreModel, rhs: CreditScoreModel) -> Bool {
+		return lhs.creditReportInfo == rhs.creditReportInfo
+	}
 }
 
-struct CreditReportInfo: Decodable {
+struct CreditReportInfo: Decodable, Equatable {
 	var score: Int?
 	var maxScoreValue: Int?
+	
+	static func == (lhs: CreditReportInfo, rhs: CreditReportInfo) -> Bool {
+		return lhs.score == rhs.score && lhs.maxScoreValue == rhs.maxScoreValue
+	}
 }
+
