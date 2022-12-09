@@ -10,9 +10,9 @@ import SwiftUI
 @main
 struct ClearScoreApp: App {
     var body: some Scene {
-		let _ = Dependencies()
         WindowGroup {
-            DashboardView()
+			let service =  ClearScoreServiceImplementation()
+			DashboardView(viewModel: CreditScoreViewModel(clearScoreService: service))
         }
     }
 }

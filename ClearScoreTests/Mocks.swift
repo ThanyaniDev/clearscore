@@ -9,19 +9,24 @@ import Foundation
 import Combine
 @testable import ClearScore
 
-final class MockClearScoreService: ClearScoreService {
+class MockClearScoreService: ClearScoreService {
+	var creditScoreData: CreditScoreModel?
+	var error: Error?
 	
-	
-	let items: CreditScoreModel
-	
-	init(items: CreditScoreModel) {
-		self.items = items 
-	}
-
 	func fetchCreditScore() -> AnyPublisher<CreditScoreModel, Error> {
-		Just(items)
-			.setFailureType(to: Error.self)
-			.eraseToAnyPublisher()
+		if let creditScoreData = creditScoreData {
+			return Result.success(creditScoreData)
+				.publisher
+				.eraseToAnyPublisher()
+		} else if let error = error {
+			return Result.failure(error)
+				.publisher
+				.eraseToAnyPublisher()
+		} else {
+			fatalError("No data or error specified")
+		}
 	}
 }
+
+
 

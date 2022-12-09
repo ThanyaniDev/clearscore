@@ -10,31 +10,50 @@ import Combine
 @testable import ClearScore
 
 class ClearScoreViewModelTests: XCTestCase {
-	var viewModelUndetTest: CreditScoreViewModel?
+	var viewModelUnderTest: CreditScoreViewModel!
+	let mockClearScoreService = MockClearScoreService()
 	var cancellable = Set<AnyCancellable>()
 	
 	override func setUpWithError() throws {
-		viewModelUndetTest = CreditScoreViewModel()
+		viewModelUnderTest = CreditScoreViewModel(clearScoreService: self.mockClearScoreService)
 	}
 	
 	override func tearDownWithError() throws {
-		viewModelUndetTest = nil
+		viewModelUnderTest = nil
 	}
 	
 	func test_ClearScoreViewModel_FetchCreditScore() {
-		let scoreData =  CreditScoreModel.init(creditReportInfo: CreditReportInfo(score: 514, maxScoreValue: 700))
-		let expectation = XCTestExpectation(description: "Should return items after a second.")
-		viewModelUndetTest?.$scoreData
-			.dropFirst()
-			.sink {
-				returnedScoreData in
-				expectation.fulfill()
-			}.store(in: &cancellable)
 		
-		viewModelUndetTest?.loadCreditScoreData()
+		let creditScoreData = CreditScoreModel(creditReportInfo: CreditReportInfo(score:  234, maxScoreValue: 700))
+		mockClearScoreService.creditScoreData = creditScoreData
+	
+		viewModelUnderTest.loadCreditScoreData()
 		
-		wait(for: [expectation], timeout: 2)
-		XCTAssertEqual(viewModelUndetTest?.scoreData?.creditReportInfo?.score, scoreData.creditReportInfo?.score)
-		XCTAssertEqual(viewModelUndetTest?.scoreData?.creditReportInfo?.maxScoreValue, scoreData.creditReportInfo?.maxScoreValue)
+		XCTAssertEqual(viewModelUnderTest.scoreData?.creditReportInfo?.score, 234)
+		XCTAssertEqual(viewModelUnderTest.scoreData?.creditReportInfo?.maxScoreValue, 700)
+	}
+		
+	func testViewStateIsUpdatedWithErrorWhenFetchingFails() {
+		let mockClearScoreService = MockClearScoreService()
+		let error = NSError(domain: "Test", code: 0, userInfo: nil)
+		mockClearScoreService.error = error
+		let viewModel = CreditScoreViewModel(clearScoreService: mockClearScoreService)
+	
+		viewModel.loadCreditScoreData()
+		
+		XCTAssertEqual(viewModel.viewState, .error(errorMessage: "\(error)"))
+	}
+	
+	func testScoreIsUpdatedWithCorrectValueWhenFetchingSucceeds() {
+		
+		let mockClearScoreService = MockClearScoreService()
+		let creditScoreData = CreditScoreModel(creditReportInfo: CreditReportInfo(score: NSNumber(value: 700) as? Int,
+																				  maxScoreValue: NSNumber(value: 1000) as? Int))
+		mockClearScoreService.creditScoreData = creditScoreData
+		let viewModel = CreditScoreViewModel(clearScoreService: mockClearScoreService)
+		
+		viewModel.loadCreditScoreData()
+		
+		XCTAssertEqual(viewModel.score, 0.7)
 	}
 }
